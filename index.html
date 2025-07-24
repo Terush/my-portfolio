@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多田 旭志 - 自己PR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function applyMobileBreak() {
+            // すべてのh2要素内の.mobile-breakスパンを取得
+            const mobileBreakSpans = document.querySelectorAll('.pr-section h2 .mobile-break');
+    
+            // ウィンドウの幅が600px以下の場合
+            if (window.innerWidth <= 600) {
+                mobileBreakSpans.forEach(span => {
+                    // spanが存在し、まだ<br>に変換されていなければ変換
+                    if (span.tagName === 'SPAN') {
+                        const br = document.createElement('br');
+                        // 変換された<br>がデスクトップ時に元に戻せるよう、マーカークラスを付与
+                        br.classList.add('mobile-break-original-span-marker');
+                        span.parentNode.replaceChild(br, span);
+                    }
+                });
+            } else {
+                // ウィンドウの幅が600pxより大きい場合、<br>があれば元の<span>に戻す
+                const brElements = document.querySelectorAll('.pr-section h2 br.mobile-break-original-span-marker');
+                brElements.forEach(br => {
+                    const originalSpan = document.createElement('span');
+                    originalSpan.className = 'mobile-break';
+                    br.parentNode.replaceChild(originalSpan, br);
+                });
+            }
+        }
+    
+        // ページの読み込み時とウィンドウのリサイズ時に実行
+        applyMobileBreak();
+        window.addEventListener('resize', applyMobileBreak);
+    });
+    </script>
+<body>
+    <header>
+        <p>多田 旭志</p>
+        <p>情報の教師を目指して</p>
+    </header>
+
+    <main>
+        <section class="pr-section">
+            <h1>わたしの強み</h1> 
+            <img src="image.jpg" alt="あなたの強みを表す画像" class="main-visual-image">
+            <h2>多様な意見を尊重し、<span class="mobile-break"></span>チームをまとめ、成果創出</h2>
+            <p>
+                私の強みは、多様な意見を尊重しながら粘り強くチーム全体をまとめ上げ、具体的な成果へ繋げることです。
+            </p>
+            <h3>よさこい部での経験</h3>
+            <p>
+                大学ではよさこい部に入部しました。入部当初、部内の目標は大会での入賞でしたが、大きく「入賞を目指す人」と「よさこいのお祭りを楽しむ人」に分かれ、活動の方向性にズレが生じ、練習参加率が低下し、雰囲気も悪化していて、これらの改善が課題となっていました。
+            </p>
+            <p>
+                私はこの状況を打開すべく、2年時に部の代表となりました。約30名の部員と食事をしながら対話を重ね、本音を丁寧に聴き取りました。その結果、方向性は異なっても、「観客に感動を届けたい」という共通の想いがあると気づきました。そこで私は部の目標を「お祭りで賞を獲得すること」から、「観客の心に響く最高の演舞を創り上げること」に再設定し、部員全員で共有しました。さらに部員が主体的に関われるよう、練習メニューを自ら考案する日を設けました。
+            </p>
+            <p>
+                これらの取り組みの結果、練習の出席率は大幅に上がり、北関東地域最大規模のよさこい祭りである「いばらきよさこい祭り」でよさこい甲子園優秀賞を受賞し、部として初めての受賞を果たすことができました。
+            </p>
+            <p>
+                この経験は、多様な意見を尊重しながら粘り強くチーム全体をまとめ上げることの大切さを実感させてくれたと共に、強みとしての認識に繋がっています。
+            </p>
+            <h3>教師としての抱負</h3>
+            <p>
+                生徒にも多様なバックグラウンドや考えを持つ生徒がいます。この経験で培った姿勢を活かし、生徒一人ひとりに丁寧に向き合いながら、一体感と主体性を育むクラスづくりをしていきたいと考えています。
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 多田 旭志</p>
+    </footer>
+</body>
+</html>

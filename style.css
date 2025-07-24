@@ -1,0 +1,143 @@
+/* 基本設定 */
+body {
+    font-family: 'Segoe UI', 'Meiryo', sans-serif;
+    line-height: 1.6; /* 行間を少し狭めて読みやすく */
+    margin: 0;
+    padding: 0;
+    background-color: #f8fbfd; /* 背景色をより柔らかいライトブルーに */
+    color: #333;
+}
+
+/* ヘッダー */
+header {
+    display: none; /* ヘッダーを完全に非表示にする */
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5em 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* メインコンテンツ */
+main {
+    max-width: 800px;
+    margin: 3em auto; /* 上下の余白を少し増やす */
+    padding: 0 20px;
+}
+
+.pr-section {
+    background-color: #ffffff;
+    padding: 40px; /* パディングを少し増やす */
+    border-radius: 12px; /* 角をもう少し丸くする */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08); /* 影をより柔らかく、深めに */
+}
+
+/* 自己PRタイトル用のh1のスタイル */
+.pr-section h1 {
+    color: #2c3e50;
+    font-size: 3.2em; /* フォントサイズを微調整 */
+    text-align: center;
+    margin-bottom: 15px; /* サブタイトルとの間隔を微調整 */
+    padding-bottom: 0;
+    border-bottom: none;
+    letter-spacing: 0.04em; /* 文字間隔を微調整 */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15); /* 影をよりソフトに */
+    line-height: 1.2; /* タイトルの行間 */
+}
+
+/* メインコンテンツ内の画像のスタイル */
+.pr-section .main-visual-image {
+    display: block;
+    max-width: 85%; /* 画像の幅を少し広げる */
+    height: auto;
+    margin: 40px auto; /* 上下の余白を増やす */
+    border-radius: 10px; /* 角丸を微調整 */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12); /* 影を調整 */
+}
+
+/* h1の直後のh2（多様な意見を尊重し、チームをまとめ成果創出）のスタイル */
+.pr-section h2 {
+    color: #2980b9;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 12px; /* パディングを微調整 */
+    margin-bottom: 30px; /* 下の要素との間隔を少し広げる */
+    font-size: 1.5em; /* h3より少しだけ大きくして階層を強調 */
+    text-align: center;
+    font-weight: 600; /* 少し太くして存在感を出す */
+    letter-spacing: 0.02em; /* 文字間隔を微調整 */
+}
+
+/* h3のスタイル */
+.pr-section h3 {
+    color: #27ae60;
+    margin-top: 2.5em; /* 上の余白を少し増やす */
+    font-size: 1.4em;
+    border-bottom: 1px solid #2ecc71;
+    padding-bottom: 8px; /* パディングを微調整 */
+    margin-bottom: 20px; /* 下の要素との間隔を微調整 */
+}
+
+.pr-section p {
+    margin-bottom: 1.2em; /* 段落間の余白を少し広げて読みやすく */
+    text-align: justify;
+    font-size: 1.1em;
+    line-height: 1.7; /* 段落の行間を少し広げて読みやすく */
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 2em 0; /* パディングを増やす */
+    margin-top: 4em; /* 上の余白を増やす */
+    background-color: #e9eff2; /* 背景色を調整 */
+    color: #6a7c8d; /* 文字色を調整 */
+    font-size: 0.9em;
+}
+
+/* レスポンシブ対応 (モバイル向け) */
+@media (max-width: 600px) {
+    main {
+        margin: 1.5em auto; /* モバイルでの余白を調整 */
+        padding: 0 15px;
+    }
+    .pr-section {
+        padding: 25px; /* モバイルでのパディングを調整 */
+        border-radius: 10px; /* モバイルでの角丸を微調整 */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* モバイルでの影を調整 */
+    }
+    .pr-section h1 { /* モバイルでの自己PRタイトル用h1調整 */
+        font-size: 2.2em; /* モバイルでのフォントサイズを微調整 */
+        margin-bottom: 10px;
+        letter-spacing: 0.03em;
+    }
+    .pr-section .main-visual-image {
+        max-width: 98%; /* モバイルではほぼいっぱいに広げる */
+        margin: 25px auto; /* モバイルでの余白を調整 */
+        border-radius: 8px; /* モバイルでの角丸を微調整 */
+    }
+    .pr-section h2 { /* モバイルでの「多様な意見を尊重し〜」用h2調整 */
+        font-size: 1.3em; /* モバイルでh3より少しだけ大きく */
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    .pr-section h3 {
+        font-size: 1.2em; /* モバイルのh3はそのまま */
+        margin-top: 2em;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
+    .pr-section p {
+        font-size: 0.95em; /* モバイルでの段落フォントサイズを微調整 */
+        line-height: 1.6;
+    }
+    footer {
+        padding: 1.5em 0;
+        margin-top: 3em;
+    }
+}
+
+/* デフォルトでは改行用の目印を非表示にする */
+.mobile-break {
+    display: none;
+}
