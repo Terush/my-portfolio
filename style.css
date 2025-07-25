@@ -1,0 +1,206 @@
+/* 共通設定 */
+body {
+    font-family: 'Segoe UI', 'Meiryo', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8fbfd;
+    color: #333;
+}
+
+/* ヘッダー */
+header {
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5em 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header p {
+    margin: 0.3em 0;
+    font-size: 1.1em;
+}
+
+/* ナビゲーション全体の調整 */
+nav {
+    margin-top: 10px;
+}
+
+
+/* ナビゲーション（必要な場合） */
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* メイン */
+main {
+    max-width: 800px;
+    margin: 3em auto;
+    padding: 0 20px;
+}
+
+/* 自己PRセクション */
+.pr-section {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* h1：PRタイトル */
+.pr-section h1 {
+    color: #2c3e50;
+    font-size: 3.2em;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 0;
+    border-bottom: none;
+    letter-spacing: 0.04em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    line-height: 1.2;
+}
+
+/* メイン画像 */
+.pr-section .main-visual-image {
+    display: block;
+    max-width: 85%;
+    height: auto;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+/* h2：サブタイトル */
+.pr-section h2 {
+    color: #2980b9;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* h3 */
+.pr-section h3 {
+    color: #27ae60;
+    margin-top: 2.5em;
+    font-size: 1.4em;
+    border-bottom: 1px solid #2ecc71;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+.pr-section p {
+    margin-bottom: 1.2em;
+    text-align: justify;
+    font-size: 1.1em;
+    line-height: 1.7;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 2em 0;
+    margin-top: 4em;
+    background-color: #e9eff2;
+    color: #6a7c8d;
+    font-size: 0.9em;
+}
+
+/* モバイル対応 */
+@media (max-width: 600px) {
+    main {
+        margin: 1.5em auto;
+        padding: 0 15px;
+    }
+    .pr-section {
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .pr-section h1 {
+        font-size: 2.2em;
+        margin-bottom: 10px;
+        letter-spacing: 0.03em;
+    }
+    .pr-section .main-visual-image {
+        max-width: 98%;
+        margin: 25px auto;
+        border-radius: 8px;
+    }
+    .pr-section h2 {
+        font-size: 1.3em;
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    .pr-section h3 {
+        font-size: 1.2em;
+        margin-top: 2em;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
+    .pr-section p {
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+    footer {
+        padding: 1.5em 0;
+        margin-top: 3em;
+    }
+    /* モバイル時のテーブル調整 */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    table td {
+        font-size: 1.1em;  /* ← 文字サイズを少し大きく */
+        padding: 12px 8px; /* 余白も広げてタップしやすく */
+    }
+}
+
+/* モバイル用改行（JSで切り替え） */
+.mobile-break {
+    display: none;
+}
+
+/* リスト系（about.htmlなど） */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 0.8em;
+    font-size: 1.1em;
+}
+
+/* education.html */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5em;
+}
+
+table td {
+    border-bottom: 1px solid #ccc;
+    padding: 8px;
+}
+
+/* 学歴テーブルの日付セルの改行を防ぐ */
+table td:first-child {
+    white-space: nowrap;
+    width: 10em; /* 幅を少し固定すると綺麗 */
+}
