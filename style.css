@@ -117,6 +117,67 @@ footer {
     font-size: 0.9em;
 }
 
+/* モバイル用改行（JSで切り替え） */
+.mobile-break {
+    display: none;
+}
+
+/* リスト系（about.htmlなど） */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 0.8em;
+    font-size: 1.1em;
+}
+
+/* education.html */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5em;
+}
+
+table td {
+    border-bottom: 1px solid #ccc;
+    padding: 8px;
+    line-height: 1.6;  /* これを追加 */
+}
+
+/* 学歴テーブルの日付セルの改行を防ぐ */
+table td:first-child {
+    white-space: nowrap;
+    width: 10em; /* 幅を少し固定すると綺麗 */
+}
+
+/* 学歴リスト */
+.education-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5em 0;
+}
+
+/* 学歴リストの各項目 */
+.education-list li {
+    display: flex; /* ★ Flexboxレイアウトを適用 */
+    align-items: baseline; /* ★ テキストのベースラインを揃える */
+    padding: 12px 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.1em;
+    line-height: 1.7;
+  }
+  
+  /* 学歴リストの日付部分 */
+  .education-list li span {
+    width: 8em;
+    flex-shrink: 0; /* ★ これにより日付部分の幅が縮まなくなる */
+    font-weight: bold;
+    white-space: nowrap;
+    margin-right: 1.5em; /* ★ 日付と学歴の間に余白を追加 */
+  }
+
 /* モバイル対応 */
 @media (max-width: 600px) {
     main {
@@ -166,41 +227,59 @@ footer {
     }
 
     table td {
-        font-size: 1.1em;  /* ← 文字サイズを少し大きく */
+        font-size: 1.2em;  /* ← 文字サイズを少し大きく */
         padding: 12px 8px; /* 余白も広げてタップしやすく */
+    }
+
+    .education-list li {
+        font-size: 1.2em;
+        line-height: 1.8;
+    }
+
+    .education-list li span {
+        display: block;  /* 日付を上段に、内容を下段に表示 */
+        margin-bottom: 4px;
+        width: auto;
     }
 }
 
-/* モバイル用改行（JSで切り替え） */
-.mobile-break {
-    display: none;
-}
+/* --- about.html用の追加スタイル --- */
 
-/* リスト系（about.htmlなど） */
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    margin-bottom: 0.8em;
-    font-size: 1.1em;
-}
-
-/* education.html */
-table {
+/* 2つ目のカードの上に余白を追加 */
+.pr-section + .pr-section {
+    margin-top: 2.5em;
+  }
+  
+  /* 資格・免許テーブルのスタイル */
+  .license-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1.5em;
-}
-
-table td {
-    border-bottom: 1px solid #ccc;
-    padding: 8px;
-}
-
-/* 学歴テーブルの日付セルの改行を防ぐ */
-table td:first-child {
-    white-space: nowrap;
-    width: 10em; /* 幅を少し固定すると綺麗 */
-}
+    font-size: 1em; /* 文字サイズを親要素に合わせる */
+  }
+  
+  /* テーブルのヘッダーとセル */
+  .license-table th,
+  .license-table td {
+    border-bottom: 1px solid #e9eff2; /* 区切り線を薄く */
+    padding: 12px 10px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  
+  /* テーブルのヘッダー行 */
+  .license-table th {
+    background-color: #f8fbfd; /* 背景色を少しだけつける */
+    font-weight: 600;
+    color: #2c3e50;
+    white-space: nowrap; /* ヘッダーの改行を防ぐ */
+  }
+  
+  /* 「年」と「月」の列のスタイル */
+  .license-table th:nth-child(1),
+  .license-table th:nth-child(2),
+  .license-table td:nth-child(1),
+  .license-table td:nth-child(2) {
+    text-align: center;
+    width: 2.5em; /* 幅を固定してレイアウトを整える */
+  }
