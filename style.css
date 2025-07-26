@@ -232,6 +232,7 @@ table td:first-child {
     }
 
     .education-list li {
+        display: block; /* ★この一行を追加 */
         font-size: 1.2em;
         line-height: 1.8;
     }
@@ -249,37 +250,123 @@ table td:first-child {
 .pr-section + .pr-section {
     margin-top: 2.5em;
   }
-  
-  /* 資格・免許テーブルのスタイル */
-  .license-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1.5em;
-    font-size: 1em; /* 文字サイズを親要素に合わせる */
-  }
-  
-  /* テーブルのヘッダーとセル */
-  .license-table th,
-  .license-table td {
-    border-bottom: 1px solid #e9eff2; /* 区切り線を薄く */
-    padding: 12px 10px;
-    text-align: left;
-    vertical-align: middle;
-  }
-  
-  /* テーブルのヘッダー行 */
-  .license-table th {
-    background-color: #f8fbfd; /* 背景色を少しだけつける */
-    font-weight: 600;
-    color: #2c3e50;
-    white-space: nowrap; /* ヘッダーの改行を防ぐ */
-  }
-  
-  /* 「年」と「月」の列のスタイル */
-  .license-table th:nth-child(1),
-  .license-table th:nth-child(2),
-  .license-table td:nth-child(1),
-  .license-table td:nth-child(2) {
+
+  /* --- index.html トップページ用の追加スタイル --- */
+
+/* ヒーローセクション */
+.hero-section {
     text-align: center;
-    width: 2.5em; /* 幅を固定してレイアウトを整える */
+    padding: 4em 20px;
+    background-color: #e9eff2; /* フッターと色を合わせる */
+    margin-bottom: 3em;
   }
+  
+  .hero-title {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 0.5em;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 1em;
+  }
+  
+  .hero-section p {
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  
+  /* コンテンツカードのグリッドレイアウト */
+  .contents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    padding: 0 20px;
+  }
+  
+  /* 各コンテンツカードのスタイル */
+  .content-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .content-card h2 {
+    color: #2980b9;
+    margin-top: 0;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .content-card p {
+    flex-grow: 1; /* ボタンが常に一番下にくるように */
+    line-height: 1.7;
+    margin-bottom: 1.5em;
+  }
+  
+  /* カード内のボタン */
+  .card-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  .card-button:hover {
+    background-color: #34495e;
+  }
+  
+  /* モバイル表示の調整 */
+  @media (max-width: 600px) {
+    .hero-title {
+      font-size: 2em;
+    }
+    .contents-grid {
+      padding: 0;
+    }
+  }
+
+  /* --- 履歴書PDFボタンのスタイル --- */
+.hero-button {
+    display: inline-block;
+    margin-top: 1.5em; /* ボタンの上の余白 */
+    padding: 10px 25px;
+    border: 2px solid #2c3e50; /* ヘッダーの色に合わせた枠線 */
+    border-radius: 8px;
+    color: #2c3e50; /* 文字色 */
+    background-color: transparent; /* 背景は透明に */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .hero-button:hover {
+    background-color: #2c3e50; /* マウスを乗せたら背景色を塗る */
+    color: #ffffff; /* 文字色を白に */
+  }
+
+  /* --- 強調したい名前用のスタイル --- */
+.name-highlight {
+    font-weight: 1000; /* 少し太字にする */
+    font-size: 1.5em;  /* ★この一行を追加 */
+  }
+
