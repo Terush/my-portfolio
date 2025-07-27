@@ -1,300 +1,142 @@
-/* 共通設定 */
-body {
+/* =================================================================
+   基本設定と変数定義 (Base Settings & Variables)
+   ================================================================= */
+   :root {
+    /* 色の変数を定義 */
+    --primary-color: #007BFF;       /* メインの青色 (知的) */
+    --primary-light: #56a5ff;      /* 明るい青色 (ハイライト) */
+    --text-dark: #333;              /* 基本のテキスト色 */
+    --header-bg: #2c3e50;           /* ヘッダー背景色 */
+    --header-text: #ffffff;         /* ヘッダー文字色 */
+    --hero-bg: #eaf6ff; /* 淡く落ち着いた水色 */
+    --card-bg: #ffffff;             /* カード背景色 */
+    --footer-bg: #e9eff2;           /* フッター背景色 */
+    --footer-text: #6a7c8d;         /* フッター文字色 */
+  }
+  
+  body {
     font-family: 'Segoe UI', 'Meiryo', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #f8fbfd;
-    color: #333;
-}
-
-/* ヘッダー */
-header {
-    background-color: #2c3e50;
-    color: #ffffff;
-    text-align: center;
-    padding: 1.5em 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-header p {
-    margin: 0.3em 0;
-    font-size: 1.1em;
-}
-
-/* ナビゲーション全体の調整 */
-nav {
-    margin-top: 10px;
-}
-
-
-/* ナビゲーション（必要な場合） */
-nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* メイン */
-main {
+    color: var(--text-dark);
+  }
+  
+  
+  /* =================================================================
+     レイアウト (Layout)
+     ================================================================= */
+  main {
     max-width: 800px;
     margin: 3em auto;
     padding: 0 20px;
-}
-
-/* 自己PRセクション */
-.pr-section {
-    background-color: #ffffff;
+  }
+  
+  header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    text-align: center;
+    padding: 1.5em 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 2em 0;
+    margin-top: 4em;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    font-size: 0.9rem;
+  }
+  
+  
+  /* =================================================================
+     コンポーネント (Components)
+     ================================================================= */
+  
+  /* --- ナビゲーション --- */
+  nav {
+    margin-top: 10px;
+  }
+  nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: var(--header-text);
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* --- 汎用セクション --- */
+  .pr-section {
+    background-color: var(--card-bg);
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-/* h1：PRタイトル */
-.pr-section h1 {
-    color: #2c3e50;
-    font-size: 3.2em;
-    text-align: center;
-    margin-bottom: 15px;
-    padding-bottom: 0;
-    border-bottom: none;
-    letter-spacing: 0.04em;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-    line-height: 1.2;
-}
-
-/* メイン画像 */
-.pr-section .main-visual-image {
+  }
+  .pr-section + .pr-section {
+    margin-top: 2.5em;
+  }
+  
+  /* --- ヒーローセクション (トップページ) --- */
+  .hero-section {
+    display: flex;
+    align-items: center;
+    gap: 2.5em;
+    padding: 4em 20px;
+    background-color: var(--hero-bg);
+    margin-bottom: 3em;
+  }
+  .hero-text {
+    flex-grow: 1;
+  }
+  .profile-photo {
+    width: 150px;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+  }
+  .hero-button {
+    display: inline-block;
+    margin-top: 1.5em;
+    padding: 10px 25px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    color: var(--primary-color);
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+  }
+  .hero-button:hover {
+    background-color: var(--primary-color);
+    color: var(--header-text);
+  }
+  
+  /* --- 汎用メイン画像 (自己PRページなど) --- */
+  .main-visual-image {
     display: block;
     max-width: 85%;
     height: auto;
     margin: 40px auto;
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-}
-
-/* h2：サブタイトル */
-.pr-section h2 {
-    color: #2980b9;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 12px;
-    margin-bottom: 30px;
-    font-size: 1.5em;
-    text-align: center;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-}
-
-/* h3 */
-.pr-section h3 {
-    color: #27ae60;
-    margin-top: 2.5em;
-    font-size: 1.4em;
-    border-bottom: 1px solid #2ecc71;
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-}
-
-.pr-section p {
-    margin-bottom: 1.2em;
-    text-align: justify;
-    font-size: 1.1em;
-    line-height: 1.7;
-}
-
-/* フッター */
-footer {
-    text-align: center;
-    padding: 2em 0;
-    margin-top: 4em;
-    background-color: #e9eff2;
-    color: #6a7c8d;
-    font-size: 0.9em;
-}
-
-/* モバイル用改行（JSで切り替え） */
-.mobile-break {
-    display: none;
-}
-
-/* リスト系（about.htmlなど） */
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    margin-bottom: 0.8em;
-    font-size: 1.1em;
-}
-
-/* education.html */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1.5em;
-}
-
-table td {
-    border-bottom: 1px solid #ccc;
-    padding: 8px;
-    line-height: 1.6;  /* これを追加 */
-}
-
-/* 学歴テーブルの日付セルの改行を防ぐ */
-table td:first-child {
-    white-space: nowrap;
-    width: 10em; /* 幅を少し固定すると綺麗 */
-}
-
-/* 学歴リスト */
-.education-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.5em 0;
-}
-
-/* 学歴リストの各項目 */
-.education-list li {
-    display: flex; /* ★ Flexboxレイアウトを適用 */
-    align-items: baseline; /* ★ テキストのベースラインを揃える */
-    padding: 12px 0;
-    border-bottom: 1px solid #ccc;
-    font-size: 1.1em;
-    line-height: 1.7;
   }
   
-  /* 学歴リストの日付部分 */
-  .education-list li span {
-    width: 8em;
-    flex-shrink: 0; /* ★ これにより日付部分の幅が縮まなくなる */
-    font-weight: bold;
-    white-space: nowrap;
-    margin-right: 1.5em; /* ★ 日付と学歴の間に余白を追加 */
-  }
-
-/* モバイル対応 */
-@media (max-width: 600px) {
-    main {
-        margin: 1.5em auto;
-        padding: 0 15px;
-    }
-    .pr-section {
-        padding: 25px;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    .pr-section h1 {
-        font-size: 2.2em;
-        margin-bottom: 10px;
-        letter-spacing: 0.03em;
-    }
-    .pr-section .main-visual-image {
-        max-width: 98%;
-        margin: 25px auto;
-        border-radius: 8px;
-    }
-    .pr-section h2 {
-        font-size: 1.3em;
-        padding-bottom: 8px;
-        margin-bottom: 20px;
-        font-weight: 600;
-    }
-    .pr-section h3 {
-        font-size: 1.2em;
-        margin-top: 2em;
-        padding-bottom: 5px;
-        margin-bottom: 15px;
-    }
-    .pr-section p {
-        font-size: 0.95em;
-        line-height: 1.6;
-    }
-    footer {
-        padding: 1.5em 0;
-        margin-top: 3em;
-    }
-    /* モバイル時のテーブル調整 */
-    table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    table td {
-        font-size: 1.2em;  /* ← 文字サイズを少し大きく */
-        padding: 12px 8px; /* 余白も広げてタップしやすく */
-    }
-
-    .education-list li {
-        display: block; /* ★この一行を追加 */
-        font-size: 1.2em;
-        line-height: 1.8;
-    }
-
-    .education-list li span {
-        display: block;  /* 日付を上段に、内容を下段に表示 */
-        margin-bottom: 4px;
-        width: auto;
-    }
-}
-
-/* --- about.html用の追加スタイル --- */
-
-/* 2つ目のカードの上に余白を追加 */
-.pr-section + .pr-section {
-    margin-top: 2.5em;
-  }
-
-/* --- index.html トップページ用の追加スタイル --- */
-
-/* ヒーローセクション */
-.hero-section {
-  /* text-align: center; を削除 */
-  padding: 4em 20px;
-  background-color: #e9eff2; /* フッターと色を合わせる */
-  margin-bottom: 3em;
-  /* ▼▼▼ここから追加▼▼▼ */
-  display: flex; /* 横並びにする */
-  align-items: center; /* 上下中央揃え */
-  gap: 2.5em; /* 写真とテキストの間隔 */
-  /* ▲▲▲ここまで追加▲▲▲ */
-}
-
-.hero-title {
-  font-size: 2.5em;
-  color: #2c3e50;
-  margin-bottom: 0.5em;
-}
-
-.hero-subtitle {
-  font-size: 1.2em;
-  font-weight: 600;
-  color: #34495e;
-  margin-bottom: 1em;
-}
-
-.hero-section p {
-  /* max-width: 600px; を削除 */
-  margin: 0 0 1em 0; /* margin: 0 auto; から変更 */
-  line-height: 1.8;
-}
-  /* コンテンツカードのグリッドレイアウト */
+  
+  /* --- コンテンツカード (トップページ) --- */
   .contents-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2em;
     padding: 0 20px;
   }
-  
-  /* 各コンテンツカードのスタイル */
   .content-card {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border-radius: 12px;
     padding: 30px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
@@ -302,124 +144,214 @@ table td:first-child {
     flex-direction: column;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
-  
   .content-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
   }
-  
-  .content-card h2 {
-    color: #2980b9;
-    margin-top: 0;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-  }
-  
   .content-card p {
-    flex-grow: 1; /* ボタンが常に一番下にくるように */
-    line-height: 1.7;
-    margin-bottom: 1.5em;
+    flex-grow: 1;
   }
-  
-  /* カード内のボタン */
   .card-button {
     display: inline-block;
     text-decoration: none;
-    background-color: #2c3e50;
-    color: #ffffff;
+    background-color: var(--header-bg);
+    color: var(--header-text);
     padding: 10px 20px;
     border-radius: 8px;
     text-align: center;
     font-weight: bold;
     transition: background-color 0.2s ease;
   }
-  
   .card-button:hover {
     background-color: #34495e;
   }
   
-  /* モバイル表示の調整 */
+  /* --- 学歴・資格リスト --- */
+  .education-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5em 0;
+  }
+  .education-list li {
+    display: flex;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.1rem;
+  }
+  .education-list li span {
+    width: 8em;
+    flex-shrink: 0;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-right: 1.5em;
+  }
+  
+  /* --- テーブル (aboutページなど) --- */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5em;
+  }
+  table td {
+    border-bottom: 1px solid #ccc;
+    padding: 8px;
+    line-height: 1.6;
+  }
+  table td:first-child {
+    white-space: nowrap;
+    width: 10em;
+  }
+  
+  
+  /* =================================================================
+     タイポグラフィ (Typography)
+     ================================================================= */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+  }
+  
+/* サイトタイトル (全ページ共通ヘッダー) */
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 0.05em;
+  font-weight: 700; /* 読み込んだフォントの太さを指定 */
+}
+  
+  /* PRタイトル (aboutページなど) */
+  .pr-section h1 {
+    color: #2c3e50;
+    font-size: 3.2rem;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 0;
+    border-bottom: none;
+    letter-spacing: 0.04em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  }
+  
+  /* ヒーローセクションのタイトル (トップページ) */
+  .hero-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1em;
+  }
+  .name-highlight {
+    font-weight: 1000;
+    font-size: 1.5em;
+    color: var(--primary-light);
+  }
+  
+  /* 共通の見出しh2 */
+  .pr-section h2,
+  .content-card h2 {
+    color: #2980b9;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  /* 共通の見出しh3 */
+  .pr-section h3 {
+    color: #27ae60;
+    margin-top: 2.5em;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #2ecc71;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* 段落 */
+  p {
+    font-size: 1rem;
+  }
+  header p {
+    margin: 0.3em 0;
+    font-size: 1.1rem;
+  }
+  .pr-section p {
+    text-align: justify;
+    margin-bottom: 1.2em;
+  }
+  
+  /* モバイル用改行（必要な場合に使用） */
+  .mobile-break {
+    display: none;
+  }
+  
+  
+  /* =================================================================
+     モバイル対応 (Media Queries)
+     ================================================================= */
   @media (max-width: 600px) {
-    .hero-title {
-      font-size: 2em;
+    main {
+      margin: 1.5em auto;
+      padding: 0 15px;
     }
+    .pr-section {
+      padding: 25px;
+    }
+    .pr-section h1 {
+      font-size: 2.2rem;
+    }
+    .pr-section h2 {
+      font-size: 1.3rem;
+    }
+    .pr-section h3 {
+      font-size: 1.2rem;
+    }
+    .pr-section p {
+      font-size: 0.95rem;
+    }
+    
+    .hero-section {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5em;
+    }
+    .hero-section p {
+      margin: 0 auto 1em auto;
+    }
+    .hero-title {
+      font-size: 2rem;
+    }
+  
     .contents-grid {
       padding: 0;
     }
-  }
-
-  /* --- 履歴書PDFボタンのスタイル --- */
-.hero-button {
-    display: inline-block;
-    margin-top: 1.5em; /* ボタンの上の余白 */
-    padding: 10px 25px;
-    border: 2px solid #2c3e50; /* ヘッダーの色に合わせた枠線 */
-    border-radius: 8px;
-    color: #2c3e50; /* 文字色 */
-    background-color: transparent; /* 背景は透明に */
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.2s ease-in-out;
-  }
   
-  .hero-button:hover {
-    background-color: #2c3e50; /* マウスを乗せたら背景色を塗る */
-    color: #ffffff; /* 文字色を白に */
+    .education-list li {
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 1.2rem;
+    }
+    .education-list li span {
+       margin-bottom: 4px;
+    }
+  
+    .main-visual-image {
+      max-width: 98%;
+      margin: 25px auto;
+      border-radius: 8px;
+    }
+  
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    table td {
+      font-size: 1.2rem;
+      padding: 12px 8px;
+    }
   }
-
-  /* --- 強調したい名前用のスタイル --- */
-.name-highlight {
-    font-weight: 1000; /* 少し太字にする */
-    font-size: 1.5em;  /* ★この一行を追加 */
-  }
-
-/* --- 顔写真用のスタイル --- */
-.profile-photo {
-  width: 150px;
-  height: 200px; /* 履歴書写真の一般的な比率（3:4）*/
-  border-radius: 8px;
-  object-fit: cover; /* 画像が歪まないように調整 */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  flex-shrink: 0; /* コンテンツが縮んでも画像のサイズを維持 */
-}
-
-/* ヒーローセクションのテキスト部分 */
-.hero-text {
-  flex-grow: 1; /* 残りのスペースをすべて使う */
-}
-
-/* --- モバイル表示の調整 (顔写真) --- */
-@media (max-width: 600px) {
-  .hero-section {
-    flex-direction: column; /* 縦並びにする */
-    text-align: center; /* テキストを中央揃えに */
-    gap: 1.5em; /* 写真とテキストの間隔を調整 */
-  }
-
-  .hero-section p {
-    margin: 0 auto 1em auto; /* 再び左右中央揃えに */
-  }
-}
-
-/* --- ヒーローセクションの視認性改善（別案） --- */
-
-/* メインカラーを緑系に変更 */
-.hero-section .hero-title {
-  color: #27ae60; /* 濃い緑 */
-}
-
-.hero-section .name-highlight {
-  color: #2ecc71; /* 明るい緑 */
-}
-
-/* ボタンも緑系に */
-.hero-section .hero-button {
-  border-color: #27ae60;
-  color: #27ae60;
-}
-
-.hero-section .hero-button:hover {
-  background-color: #27ae60;
-  color: #ffffff;
-}
