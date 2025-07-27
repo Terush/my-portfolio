@@ -251,35 +251,39 @@ table td:first-child {
     margin-top: 2.5em;
   }
 
-  /* --- index.html トップページ用の追加スタイル --- */
+/* --- index.html トップページ用の追加スタイル --- */
 
 /* ヒーローセクション */
 .hero-section {
-    text-align: center;
-    padding: 4em 20px;
-    background-color: #e9eff2; /* フッターと色を合わせる */
-    margin-bottom: 3em;
-  }
-  
-  .hero-title {
-    font-size: 2.5em;
-    color: #2c3e50;
-    margin-bottom: 0.5em;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.2em;
-    font-weight: 600;
-    color: #34495e;
-    margin-bottom: 1em;
-  }
-  
-  .hero-section p {
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.8;
-  }
-  
+  /* text-align: center; を削除 */
+  padding: 4em 20px;
+  background-color: #e9eff2; /* フッターと色を合わせる */
+  margin-bottom: 3em;
+  /* ▼▼▼ここから追加▼▼▼ */
+  display: flex; /* 横並びにする */
+  align-items: center; /* 上下中央揃え */
+  gap: 2.5em; /* 写真とテキストの間隔 */
+  /* ▲▲▲ここまで追加▲▲▲ */
+}
+
+.hero-title {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 0.5em;
+}
+
+.hero-subtitle {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 1em;
+}
+
+.hero-section p {
+  /* max-width: 600px; を削除 */
+  margin: 0 0 1em 0; /* margin: 0 auto; から変更 */
+  line-height: 1.8;
+}
   /* コンテンツカードのグリッドレイアウト */
   .contents-grid {
     display: grid;
@@ -370,3 +374,52 @@ table td:first-child {
     font-size: 1.5em;  /* ★この一行を追加 */
   }
 
+/* --- 顔写真用のスタイル --- */
+.profile-photo {
+  width: 150px;
+  height: 200px; /* 履歴書写真の一般的な比率（3:4）*/
+  border-radius: 8px;
+  object-fit: cover; /* 画像が歪まないように調整 */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  flex-shrink: 0; /* コンテンツが縮んでも画像のサイズを維持 */
+}
+
+/* ヒーローセクションのテキスト部分 */
+.hero-text {
+  flex-grow: 1; /* 残りのスペースをすべて使う */
+}
+
+/* --- モバイル表示の調整 (顔写真) --- */
+@media (max-width: 600px) {
+  .hero-section {
+    flex-direction: column; /* 縦並びにする */
+    text-align: center; /* テキストを中央揃えに */
+    gap: 1.5em; /* 写真とテキストの間隔を調整 */
+  }
+
+  .hero-section p {
+    margin: 0 auto 1em auto; /* 再び左右中央揃えに */
+  }
+}
+
+/* --- ヒーローセクションの視認性改善（別案） --- */
+
+/* メインカラーを緑系に変更 */
+.hero-section .hero-title {
+  color: #27ae60; /* 濃い緑 */
+}
+
+.hero-section .name-highlight {
+  color: #2ecc71; /* 明るい緑 */
+}
+
+/* ボタンも緑系に */
+.hero-section .hero-button {
+  border-color: #27ae60;
+  color: #27ae60;
+}
+
+.hero-section .hero-button:hover {
+  background-color: #27ae60;
+  color: #ffffff;
+}
